@@ -1,0 +1,32 @@
+<template>
+    <div>
+        <Header />
+        <AddTrip />
+        <trip-card v-for="(trip) in AllTrips" :key="trip.id" :trip="trip"/>
+    </div>
+</template>
+
+<script>
+import {mapGetters} from 'vuex'
+import AddTrip from '../components/AddTrip.vue'
+import Header from '../components/Header.vue'
+import TripCard from '../components/TripCard.vue'
+    export default {
+        name: "StationForm",
+        components: {
+            TripCard,
+            Header,
+            AddTrip
+        },
+        computed: mapGetters(['AllTrips'])
+    }
+</script>
+
+<style lang="scss" scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+}
+</style>
